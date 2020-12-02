@@ -1,0 +1,22 @@
+<h1 id="tableLabel">Route Types</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!routeTypes"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="routeTypes">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let routeType of routeTypes">
+      <td>{{ routeType.id }}</td>
+      <td>{{ routeType.name }}</td>
+      <td>{{ routeType.notes }}</td>
+    </tr>
+  </tbody>
+</table>

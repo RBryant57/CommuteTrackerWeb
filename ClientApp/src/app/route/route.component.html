@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Routes</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!routes"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="routes">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Route Type</th>
+      <th>Miles</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let route of routes">
+      <td>{{ route.id }}</td>
+      <td>{{ route.name }}</td>
+      <td>{{ route.routeTypeId }}</td>
+      <td>{{ route.miles }}</td>
+      <td>{{ route.notes }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -16,9 +16,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let route of routes">
-      <td>{{ route.id }}</td>
+      <td><a href="route/{{route.id}}">{{ route.id }}</a></td>
       <td>{{ route.name }}</td>
-      <td>{{ route.routeTypeId }}</td>
+      <td>{{ route.routeType.name }}</td>
       <td>{{ route.miles }}</td>
       <td>{{ route.notes }}</td>
     </tr>

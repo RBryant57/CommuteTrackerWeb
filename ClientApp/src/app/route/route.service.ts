@@ -21,6 +21,13 @@ export class RouteService {
     );
   }
 
+  public getRoute(id: number): Observable<Route> {
+    return this.http.get<Route>(this.baseURL + 'api/routes/' + id).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

@@ -22,7 +22,8 @@ namespace CommuteTrackerWeb.Controllers
 
         public RoutesController(IConfiguration config)
         {
-            baseURL = config.GetSection("BaseURL").Value;
+            configuration = config;
+            baseURL = configuration.GetSection("BaseURL").Value;
         }
 
         // GET: api/<RoutesController>

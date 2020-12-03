@@ -1,3 +1,5 @@
+import { RouteType } from "../route-type/route-type-model";
+
 export class RouteModel {
 }
 export class Route {
@@ -6,6 +8,7 @@ export class Route {
     public name: string,
     public routeTypeId: number,
     public miles: number,
-    notes: string
+    public notes: string,
+    public routeType: RouteType
   ) { }
 }

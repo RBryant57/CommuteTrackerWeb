@@ -16,21 +16,21 @@ namespace CommuteTrackerWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoutesController : ControllerBase
+    public class FareClassesController : ControllerBase
     {
         private IConfiguration configuration;
         private readonly string baseURL;
-        private readonly string apiUrl = "/CommuteTrackerService1/api/routes";
+        private readonly string apiUrl = "/CommuteTrackerService1/api/fareclasses";
 
-        public RoutesController(IConfiguration config)
+        public FareClassesController(IConfiguration config)
         {
             configuration = config;
             baseURL = configuration.GetSection("BaseURL").Value;
         }
 
-        // GET: api/<RoutesController>
+        // GET: api/<FareClassesController>
         [HttpGet]
-        public async Task<IEnumerable<Route>> Get()
+        public async Task<IEnumerable<FareClass>> Get()
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri(baseURL);
@@ -41,14 +41,14 @@ namespace CommuteTrackerWeb.Controllers
             response.EnsureSuccessStatusCode();
             var resp = await response.Content.ReadAsStringAsync();
 
-            var entities = JsonConvert.DeserializeObject<List<Route>>(resp);
+            var entities = JsonConvert.DeserializeObject<List<FareClass>>(resp);
 
             return entities;
         }
 
-        // GET api/<RoutesController>/5
+        // GET api/<FareClassesController>/5
         [HttpGet("{id}")]
-        public async Task<Route> Get(int id)
+        public async Task<FareClass> Get(int id)
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri(baseURL);
@@ -59,14 +59,14 @@ namespace CommuteTrackerWeb.Controllers
             response.EnsureSuccessStatusCode();
             var resp = await response.Content.ReadAsStringAsync();
 
-            var entity = JsonConvert.DeserializeObject<Route>(resp);
+            var entity = JsonConvert.DeserializeObject<FareClass>(resp);
 
             return entity;
         }
 
-        // POST api/<RoutesController>
+        // POST api/<FareClassesController>
         [HttpPost]
-        public async Task Post([FromBody] Route value)
+        public async Task Post([FromBody] FareClass value)
         {
             var json = JsonConvert.SerializeObject(value);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -79,13 +79,13 @@ namespace CommuteTrackerWeb.Controllers
             Console.WriteLine(result);
         }
 
-        // PUT api/<RoutesController>/5
+        // PUT api/<FareClassesController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<RoutesController>/5
+        // DELETE api/<FareClassesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

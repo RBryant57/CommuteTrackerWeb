@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RouteType } from './route-type-model';
-import { RouteTypeService } from './route-type.service';
+import { Destination } from './destination-model'
+import { DestinationService } from './destination.service';
 
 @Component({
-  selector: 'app-routetype',
-  templateUrl: './route-type.component.html',
-  styleUrls: ['./route-type.component.css']
+  selector: 'app-destination',
+  templateUrl: './destination.component.html',
+  styleUrls: ['./destination.component.css']
 })
-export class RouteTypeComponent implements OnInit {
-  public entities: RouteType[];
+export class DestinationComponent implements OnInit {
+
+  public entities: Destination[];
   private errorMessage: string;
 
-  constructor(private service: RouteTypeService, private route: ActivatedRoute) { }
+  constructor(private service: DestinationService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     var param;

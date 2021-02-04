@@ -14,14 +14,14 @@ export class RouteService {
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) { this.baseURL = baseUrl; this.http = http; }
 
-  public getRoutes(): Observable<Route[]> {
+  public getEntities(): Observable<Route[]> {
     return this.http.get<Route[]>(this.baseURL + 'api/routes').pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
+      //tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
-  public getRoute(id: number): Observable<Route> {
+  public getEntity(id: number): Observable<Route> {
     return this.http.get<Route>(this.baseURL + 'api/routes/' + id).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)

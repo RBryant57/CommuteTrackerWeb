@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RouteType } from './route-type-model';
-import { RouteTypeService } from './route-type.service';
+import { DelayReason } from './delay-reason-model';
+import { DelayReasonService } from './delay-reason.service';
 
 @Component({
-  selector: 'app-routetype',
-  templateUrl: './route-type.component.html',
-  styleUrls: ['./route-type.component.css']
+  selector: 'app-delay-reason',
+  templateUrl: './delay-reason.component.html',
+  styleUrls: ['./delay-reason.component.css']
 })
-export class RouteTypeComponent implements OnInit {
-  public entities: RouteType[];
+export class DelayReasonComponent implements OnInit {
+  public entities: DelayReason[];
   private errorMessage: string;
 
-  constructor(private service: RouteTypeService, private route: ActivatedRoute) { }
+  constructor(private service: DelayReasonService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     var param;
@@ -46,5 +46,4 @@ export class RouteTypeComponent implements OnInit {
       error => this.errorMessage = <any>error
     );
   }
-
 }

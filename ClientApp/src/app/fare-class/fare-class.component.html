@@ -1,6 +1,6 @@
-<h1 id="tableLabel">Routes</h1>
+<h1 id="tableLabel">Fare Classes</h1>
 
-<p>Routes used in a commute.</p>
+<p>Fare Classes used in a commute.</p>
 
 <p *ngIf="!entities"><em>Loading...</em></p>
 
@@ -9,17 +9,13 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
-      <th>Route Type</th>
-      <th>Miles</th>
       <th>Notes</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let entity of entities">
-      <td><a href="route/{{ entity.id }}">{{ entity.id }}</a></td>
+      <td><a href="fareclass/{{ entity.id }}">{{ entity.id }}</a></td>
       <td>{{ entity.name }}</td>
-      <td>{{ entity.routeType.name }}</td>
-      <td>{{ entity.miles }}</td>
       <td>{{ entity.notes }}</td>
     </tr>
   </tbody>

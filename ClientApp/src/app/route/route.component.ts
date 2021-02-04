@@ -9,10 +9,10 @@ import { RouteService } from './route.service';
   styleUrls: ['./route.component.css']
 })
 export class RouteComponent implements OnInit {
-  private routes: Route[];
+  public entities: Route[];
   private errorMessage: string;
 
-  constructor(private routeService: RouteService, private route: ActivatedRoute) { }
+  constructor(private service: RouteService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     var param;
@@ -21,26 +21,27 @@ export class RouteComponent implements OnInit {
     });
 
     if (!!param.id) {
-      this.loadRoute(param.id);
+      this.loadEntity(param.id);
     }
     else {
-      this.loadRoutes();
+      this.loadEntities();
+      console.log(this.entities);
     }
   }
 
-  private loadRoutes() {
-    this.routeService.getRoutes().subscribe(
-      routes => {
-        this.routes = routes;
+  private loadEntities() {
+    this.service.getEntities().subscribe(
+      entities => {
+        this.entities = entities;
       },
       error => this.errorMessage = <any>error
     );
   }
 
-  private loadRoute(id: number) {
-    this.routeService.getRoute(id).subscribe(
-      route => {
-        this.routes = new Array(route);
+  private loadEntity(id: number) {
+    this.service.getEntity(id).subscribe(
+      entity => {
+        this.entities = new Array(entity);
       },
       error => this.errorMessage = <any>error
     );

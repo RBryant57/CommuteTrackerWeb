@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RouteType } from './route-type-model';
-import { RouteTypeService } from './route-type.service';
+import { FareClass } from './fare-class-model';
+import { FareClassService } from './fare-class.service';
 
 @Component({
-  selector: 'app-routetype',
-  templateUrl: './route-type.component.html',
-  styleUrls: ['./route-type.component.css']
+  selector: 'app-fare-class',
+  templateUrl: './fare-class.component.html',
+  styleUrls: ['./fare-class.component.css']
 })
-export class RouteTypeComponent implements OnInit {
-  public entities: RouteType[];
+export class FareClassComponent implements OnInit {
+  public entities: FareClass[];
   private errorMessage: string;
 
-  constructor(private service: RouteTypeService, private route: ActivatedRoute) { }
+  constructor(private service: FareClassService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     var param;
@@ -46,5 +46,6 @@ export class RouteTypeComponent implements OnInit {
       error => this.errorMessage = <any>error
     );
   }
+
 
 }

@@ -1,6 +1,6 @@
-<h1 id="tableLabel">Route Types</h1>
+<h1 id="tableLabel">Delay Reasons</h1>
 
-<p>Types of routes used in commutes.</p>
+<p>Delay reasons used in a commute.</p>
 
 <p *ngIf="!entities"><em>Loading...</em></p>
 
@@ -8,15 +8,13 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>Name</th>
-      <th>Notes</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let entity of entities">
-      <td><a href="routetype/{{ entity.id }}">{{ entity.id }}</a></td>
-      <td>{{ entity.name }}</td>
-      <td>{{ entity.notes }}</td>
+      <td><a href="delayreason/{{ entity.id }}">{{ entity.id }}</a></td>
+      <td>{{ entity.description }}</td>
     </tr>
   </tbody>
 </table>

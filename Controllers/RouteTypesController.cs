@@ -30,38 +30,38 @@ namespace CommuteTrackerWeb.Controllers
         [HttpGet]
         public async Task<IEnumerable<RouteType>> Get()
         {
-            var routeClient = new HttpClient();
-            routeClient.BaseAddress = new Uri(baseURL);
-            routeClient.DefaultRequestHeaders.Accept.Add(
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(baseURL);
+            client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
 
             var url = "/CommuteTrackerService1/api/routetypes/";
-            HttpResponseMessage response = await routeClient.GetAsync(url);
+            HttpResponseMessage response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             var resp = await response.Content.ReadAsStringAsync();
 
-            var routeTypes = JsonConvert.DeserializeObject<List<RouteType>>(resp);
+            var entities = JsonConvert.DeserializeObject<List<RouteType>>(resp);
 
-            return routeTypes;
+            return entities;
         }
 
         // GET api/<RouteTypesController>/5
         [HttpGet("{id}")]
         public async Task<RouteType> Get(int id)
         {
-            var routeClient = new HttpClient();
-            routeClient.BaseAddress = new Uri(baseURL);
-            routeClient.DefaultRequestHeaders.Accept.Add(
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(baseURL);
+            client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
 
             var url = "/CommuteTrackerService1/api/routetypes/" + id.ToString();
-            HttpResponseMessage response = await routeClient.GetAsync(url);
+            HttpResponseMessage response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             var resp = await response.Content.ReadAsStringAsync();
 
-            var routeType = JsonConvert.DeserializeObject<RouteType>(resp);
+            var entity = JsonConvert.DeserializeObject<RouteType>(resp);
 
-            return routeType;
+            return entity;
         }
 
         // POST api/<RouteTypesController>

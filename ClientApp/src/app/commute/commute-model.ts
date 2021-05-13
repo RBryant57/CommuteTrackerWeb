@@ -26,3 +26,15 @@ export class CommuteLeg{
   Commute: Commute;
   Notes: string;
 }
+export class CommuteLegRequest {
+  Id: number;
+  StartTime: Date;
+  EndTime: Date;
+  DestinationId: number;
+  DelayReasonId: number;
+  DelaySeconds: number;
+  FareClassId: number;
+  RouteId: number;
+  CommuteId: number;
+  Notes: string;
+}

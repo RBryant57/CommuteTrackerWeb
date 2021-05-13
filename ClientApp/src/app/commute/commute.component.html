@@ -1,21 +1,17 @@
-<form class="needs-validation" [formGroup]="commuteForm" (ngSubmit)="addLeg(commuteForm)">
+<form class="needs-validation" [formGroup]="commuteForm">
   <div class="container">
-    <!--<div class="col-md-8 order-md-2 mb-8">-->
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="../../assets/images/YCDLogo.png" alt="" width="172" height="172">
       <h2>Enter Commute</h2>
       <p class="lead">Add commuting information below:</p>
-      <!--</div>-->
     </div>
 
     <div class="container">
-      <!--<div class="col-md-8 order-md-2 mb-8">-->
       <h4 class="mb-3">Date</h4>
-
       <div class="input-group col-md-4">
         <input class="form-control" formControlName="date" placeholder="yyyy-mm-dd" name="dp"
-          [displayMonths]="displayMonths" [navigation]="navigation" [outsideDays]="outsideDays"
-          [showWeekNumbers]="showWeekNumbers" ngbDatepicker #d="ngbDatepicker">
+               [displayMonths]="displayMonths" [navigation]="navigation" [outsideDays]="outsideDays"
+               [showWeekNumbers]="showWeekNumbers" ngbDatepicker #d="ngbDatepicker">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Date</button>
         </div>
@@ -23,99 +19,102 @@
 
       <label></label>
       <h4 class="mb-3">Duration</h4>
-      //<form class="needs-validation" novalidate>
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="startTime">Start Time</label>
-            <div class="input-group">
-              <input type="text" class="form-control" formControlName="startTime" placeholder="Commute Start Time"
-                [(ngModel)]="startTime" name="startTime">
-              <div class="input-group-append">
-                <button (click)="this.markTime('start')" class="btn btn-secondary">Mark</button>
-              </div>
-            </div>
-            <div class="invalid-feedback">
-              Start time is required.
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="startTime">Start Time</label>
+          <div class="input-group">
+            <input type="text" class="form-control" formControlName="startTime" placeholder="Commute Start Time">
+            <div class="input-group-append">
+              <button (click)="this.markTime('start')" class="btn btn-secondary">Mark</button>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <label for="endTime">End Time</label>
-            <div class="input-group">
-              <input type="text" class="form-control" formControlName="endTime" placeholder="Commute End Time"
-                [(ngModel)]="endTime" name="endTime">
-              <div class="input-group-append">
-                <button (click)="this.markTime('end')" class="btn btn-secondary">Mark</button>
-              </div>
-            </div>
-            <div class="invalid-feedback">
-              End time is required.
-            </div>
+          <div class="invalid-feedback">
+            Start time is required.
           </div>
         </div>
+        <div class="col-md-4 mb-3">
+          <label for="endTime">End Time</label>
+          <div class="input-group">
+            <input type="text" class="form-control" formControlName="endTime" placeholder="Commute End Time">
+            <div class="input-group-append">
+              <button (click)="this.markTime('end')" class="btn btn-secondary">Mark</button>
+            </div>
+          </div>
+          <div class="invalid-feedback">
+            End time is required.
+          </div>
+        </div>
+      </div>
 
-        <h4 class="mb-3">Information</h4>
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="destination">Destination</label>
-            <select class="custom-select d-block w-100" id="destination" formControlName="destination" required
-              [(ngModel)]="selectedDestination">
-              <option *ngFor="let destination of destinations" [ngValue]="destination">{{destination.name}}</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid destination.
-            </div>
-          </div>
-          <!-- <p-dropdown [options]="destinations" [(ngModel)]="destination"></p-dropdown> -->
-          <div class="col-md-4 mb-3">
-            <label for="fareClass">Fare Class</label>
-            <select class="custom-select d-block w-100" id="fareClass" formControlName="fareClass" required
-              [(ngModel)]="selectedFareClass">
-              <option *ngFor="let fareClass of fareClasses" [ngValue]="fareClass">{{fareClass.name}}</option>
-            </select>
-            <div class="invalid-feedback">
-              Fare class is required.
-            </div>
+      <h4 class="mb-3">Information</h4>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="destination">Destination</label>
+          <select class="custom-select d-block w-100" id="destination" formControlName="destination">
+            <option *ngFor="let destination of destinations" [ngValue]="destination">{{destination.name}}</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid destination.
           </div>
         </div>
+        <div class="col-md-4 mb-3">
+          <label for="fareClass">Fare Class</label>
+          <select class="custom-select d-block w-100" id="fareClass" formControlName="fareClass">
+            <option *ngFor="let fareClass of fareClasses" [ngValue]="fareClass">{{fareClass.name}}</option>
+          </select>
+          <div class="invalid-feedback">
+            Fare class is required.
+          </div>
+        </div>
+      </div>
 
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="route">Route</label>
-            <select class="custom-select d-block w-100" id="route" formControlName="route" required
-              [(ngModel)]="selectedRoute">
-              <option *ngFor="let route of routes" [ngValue]="route">{{route.name}}</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid route.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="delayReason">Delay Reason</label>
-            <select class="custom-select d-block w-100" id="delayReason" formControlName="delayReason" required
-              [(ngModel)]="selectedDelayReason">
-              <option *ngFor="let delayReason of delayReasons" [ngValue]="delayReasoon">{{delayReason.description}}
-              </option>
-            </select>
-            <div class="invalid-feedback">
-              Delay is required.
-            </div>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="route">Route</label>
+          <select class="custom-select d-block w-100" id="route" formControlName="route">
+            <option *ngFor="let route of routes" [ngValue]="route">{{route.name}}</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid route.
           </div>
         </div>
+        <div class="col-md-4 mb-3">
+          <label for="delayReason">Delay Reason</label>
+          <select class="custom-select d-block w-100" formControlName="delayReasonName"
+                  (change)="delayReasonChange()">
+            <option *ngFor="let delayReason of delayReasons" [ngValue]="delayReason">
+              {{delayReason.description}}
+            </option>
+          </select>
+          <div class="invalid-feedback">
+            Delay is required.
+          </div>
+        </div>
+        <div class="col-md-4 mb-3" *ngIf="this.showDelaySeconds">
+          <label for="endTime">Delay Seconds</label>
+          <div class="input-group">
+            <input type="text" class="form-control" formControlName="delaySeconds" placeholder="Delay Seconds">
+          </div>
+          <div class="invalid-feedback">
+            Delay seconds are required.
+          </div>
+        </div>
+      </div>
 
-        <hr class="mb-2">
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="this.addLeg()">Add Leg</button>
-          </div>
-          <div class="col-md-4 mb-3">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="this.completeCommute()">Complete
-              Commute</button>
-          </div>
+      <hr class="mb-2">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="this.addLeg()">Add Leg</button>
         </div>
-      //</form>
-      <!--</div>-->
+        <div class="col-md-4 mb-3">
+          <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="this.completeCommute()">
+            Complete
+            Commute
+          </button>
+        </div>
+      </div>
     </div>
-
+    <alert></alert>
     <footer class="my-5 pt-5 text-muted text-center text-small">
       <p class="mb-1">&copy; 2006-2021 YellowCaddis Development</p>
       <ul class="list-inline">

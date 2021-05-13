@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -19,6 +20,7 @@ namespace CommuteTrackerWeb.Controllers
     {
         private IConfiguration configuration;
         private readonly string baseURL;
+        private readonly string apiUrl = "/CommuteTrackerService/api/routetypes";
 
         public RouteTypesController(IConfiguration config)
         {
@@ -35,8 +37,7 @@ namespace CommuteTrackerWeb.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var url = "/CommuteTrackerService1/api/routetypes/";
-            HttpResponseMessage response = await client.GetAsync(url);
+            HttpResponseMessage response = await client.GetAsync(apiUrl);
             response.EnsureSuccessStatusCode();
             var resp = await response.Content.ReadAsStringAsync();
 
@@ -54,8 +55,7 @@ namespace CommuteTrackerWeb.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var url = "/CommuteTrackerService1/api/routetypes/" + id.ToString();
-            HttpResponseMessage response = await client.GetAsync(url);
+            HttpResponseMessage response = await client.GetAsync(apiUrl + "/" + id.ToString());
             response.EnsureSuccessStatusCode();
             var resp = await response.Content.ReadAsStringAsync();
 
@@ -66,8 +66,17 @@ namespace CommuteTrackerWeb.Controllers
 
         // POST api/<RouteTypesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task Post([FromBody] string value)
         {
+            var json = JsonConvert.SerializeObject(value);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            using var client = new HttpClient();
+
+            var response = await client.PostAsync(apiUrl, data);
+
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
         }
 
         // PUT api/<RouteTypesController>/5

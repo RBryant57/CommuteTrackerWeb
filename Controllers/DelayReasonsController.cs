@@ -20,7 +20,7 @@ namespace CommuteTrackerWeb.Controllers
     {
         private IConfiguration configuration;
         private readonly string baseURL;
-        private readonly string apiUrl = "/CommuteTrackerService1/api/delayreasons";
+        private readonly string apiUrl = "/CommuteTrackerService/api/delayreasons";
 
         public DelayReasonsController(IConfiguration config)
         {

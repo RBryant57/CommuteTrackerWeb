@@ -21,7 +21,7 @@ namespace CommuteTrackerWeb.Controllers
     {
         private IConfiguration configuration;
         private readonly string baseURL;
-        private readonly string apiUrl = "/CommuteTrackerService/api/passconditions";
+        private readonly string apiUrl = "/api/passconditions";
 
         public PassConditionsController(IConfiguration config)
         {

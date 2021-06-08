@@ -20,7 +20,7 @@ namespace CommuteTrackerWeb.Controllers
     {
         private IConfiguration configuration;
         private readonly string baseURL;
-        private readonly string apiUrl = "/CommuteTrackerService/api/fareclasses";
+        private readonly string apiUrl = "/api/fareclasses";
 
         public FareClassesController(IConfiguration config)
         {

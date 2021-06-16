@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommuteTrackerWeb", "CommuteTrackerWeb.csproj", "{AC166D8D-8B55-4466-8CFA-087D5AB20191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommuteTrackerWeb", "CommuteTrackerWeb.csproj", "{6D6D4C7D-3DCE-4F19-9A58-C32507A6BACD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC166D8D-8B55-4466-8CFA-087D5AB20191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC166D8D-8B55-4466-8CFA-087D5AB20191}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC166D8D-8B55-4466-8CFA-087D5AB20191}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC166D8D-8B55-4466-8CFA-087D5AB20191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D6D4C7D-3DCE-4F19-9A58-C32507A6BACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D6D4C7D-3DCE-4F19-9A58-C32507A6BACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D6D4C7D-3DCE-4F19-9A58-C32507A6BACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D6D4C7D-3DCE-4F19-9A58-C32507A6BACD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CA2FC652-F404-43AA-8280-FE9D51991488}
+		SolutionGuid = {D633B152-11C8-489B-BDCA-D8B7FF5D714A}
 	EndGlobalSection
 EndGlobal

@@ -10,7 +10,6 @@ export class PassCondition {
   UsualMinutes: number;
   DelayReason: DelayReason;
   DelayReasonId: number;
-  DelaySeconds: number;
   Route: Route;
   RouteId: number;
   Notes: string;

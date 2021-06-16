@@ -4,7 +4,7 @@ import { Destination } from '../destination/destination-model';
 import { DestinationService } from '../destination/destination.service';
 import { Route } from '../route/route-model';
 import { RouteService } from '../route/route.service';
-import { FilterService } from 'primeng/api';
+//import { FilterService } from 'primeng/api';
 import { DelayReason } from '../delay-reason/delay-reason-model';
 import { DelayReasonService } from '../delay-reason/delay-reason.service';
 import { FareClass } from '../fare-class/fare-class-model';
@@ -17,7 +17,7 @@ import { AlertService } from '../alert.service';
   selector: 'app-commute',
   templateUrl: './commute.component.html',
   styleUrls: ['./commute.component.css'],
-  providers: [FilterService]
+  //providers: [FilterService]
 })
 export class CommuteComponent implements OnInit {
   commuteForm: FormGroup;

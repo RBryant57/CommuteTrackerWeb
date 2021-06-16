@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { AlertModule } from '.';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { RouteComponent } from './route/route.component';
@@ -14,9 +13,10 @@ import { RouteTypeComponent } from './route-type/route-type.component';
 import { CommuteComponent } from './commute/commute.component';
 import { DestinationComponent } from './destination/destination.component';
 import { DelayReasonComponent } from './delay-reason/delay-reason.component';
-import { DropdownModule } from 'primeng/dropdown';
 import { FareClassComponent } from './fare-class/fare-class.component';
 import { PassConditionComponent } from './pass-condition/pass-condition.component';
+import { AlertModule } from './alert.module';
+//import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -34,11 +34,10 @@ import { PassConditionComponent } from './pass-condition/pass-condition.componen
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    NgbModule,
     FormsModule,
-    ReactiveFormsModule,
-    DropdownModule,
     AlertModule,
+    ReactiveFormsModule,
+    NgbModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'route', component: RouteComponent },

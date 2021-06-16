@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route } from '../route/route-model';
 import { RouteService } from '../route/route.service';
-import { FilterService } from 'primeng/api';
+//import { FilterService } from 'primeng/api';
 import { DelayReason } from '../delay-reason/delay-reason-model';
 import { DelayReasonService } from '../delay-reason/delay-reason.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -13,7 +13,7 @@ import { PassConditionService } from './pass-condition.service';
   selector: 'app-pass-condition',
   templateUrl: './pass-condition.component.html',
   styleUrls: ['./pass-condition.component.css'],
-  providers: [FilterService]
+  //providers: [FilterService]
 })
 export class PassConditionComponent implements OnInit {
   public passConditionForm: FormGroup;
@@ -22,7 +22,6 @@ export class PassConditionComponent implements OnInit {
   public delayReasons: DelayReason[];
   public selectedDelayReason: DelayReason;
   public time: string;
-
   private errorMessage: string;
 
 
@@ -68,7 +67,7 @@ export class PassConditionComponent implements OnInit {
     var time = this.passConditionForm.controls['time'].value;
     var startHours = time.slice(0, 2);
     var startMinutes = time.slice(3, 5);
-    var startSeconds = time.slice(9);
+    var startSeconds = time.slice(6, 8);
 
     passCondition.Date = new Date(date.year, date.month, date.day, startHours, startMinutes, startSeconds);
     passCondition.DelayReason = this.passConditionForm.controls['delayReasonName'].value;
@@ -77,7 +76,6 @@ export class PassConditionComponent implements OnInit {
     passCondition.RouteId = passCondition.Route.id;
     passCondition.Minutes = this.passConditionForm.controls['minutes'].value;
     passCondition.UsualMinutes = this.passConditionForm.controls['usualMinutes'].value;
-    passCondition.DelaySeconds = this.passConditionForm.controls['delaySeconds'].value;
 
     this.passConditionService.postPassCondition(passCondition)
       .subscribe(result => {

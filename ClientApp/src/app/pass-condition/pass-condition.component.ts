@@ -69,7 +69,7 @@ export class PassConditionComponent implements OnInit {
     var startMinutes = time.slice(3, 5);
     var startSeconds = time.slice(6, 8);
 
-    passCondition.Date = new Date(date.year, date.month, date.day, startHours, startMinutes, startSeconds);
+    passCondition.Date = new Date(date.year, (date.month - 1), date.day, (startHours - 7), startMinutes, startSeconds);
     passCondition.DelayReason = this.passConditionForm.controls['delayReasonName'].value;
     passCondition.DelayReasonId = passCondition.DelayReason.id;
     passCondition.Route = this.passConditionForm.controls['route'].value;
